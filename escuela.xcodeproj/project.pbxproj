@@ -17,6 +17,8 @@
 		87E1E6DD272F3413009211D7 /* escuelaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E1E6DC272F3413009211D7 /* escuelaTests.swift */; };
 		87E1E6E7272F3413009211D7 /* escuelaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E1E6E6272F3413009211D7 /* escuelaUITests.swift */; };
 		87E1E6E9272F3413009211D7 /* escuelaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E1E6E8272F3413009211D7 /* escuelaUITestsLaunchTests.swift */; };
+		87F82986279637F600779A72 /* DueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F82985279637F600779A72 /* DueView.swift */; };
+		87F829882796380700779A72 /* DueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F829872796380700779A72 /* DueStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		87E1E6E2272F3413009211D7 /* escuelaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = escuelaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87E1E6E6272F3413009211D7 /* escuelaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = escuelaUITests.swift; sourceTree = "<group>"; };
 		87E1E6E8272F3413009211D7 /* escuelaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = escuelaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		87F82985279637F600779A72 /* DueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DueView.swift; sourceTree = "<group>"; };
+		87F829872796380700779A72 /* DueStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DueStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,7 @@
 		87E1E6CA272F3412009211D7 /* escuela */ = {
 			isa = PBXGroup;
 			children = (
+				87F82984279637E800779A72 /* DueDates */,
 				87554C752791F4850042C29B /* ContentView.swift */,
 				87E1E6CB272F3412009211D7 /* escuelaApp.swift */,
 				87554C6E2791E8490042C29B /* ToDo */,
@@ -158,6 +163,15 @@
 				87E1E6E8272F3413009211D7 /* escuelaUITestsLaunchTests.swift */,
 			);
 			path = escuelaUITests;
+			sourceTree = "<group>";
+		};
+		87F82984279637E800779A72 /* DueDates */ = {
+			isa = PBXGroup;
+			children = (
+				87F82985279637F600779A72 /* DueView.swift */,
+				87F829872796380700779A72 /* DueStore.swift */,
+			);
+			path = DueDates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +309,8 @@
 				87554C722791EA870042C29B /* ToDoView.swift in Sources */,
 				87554C742791EBA30042C29B /* DataStore.swift in Sources */,
 				87E1E6CC272F3412009211D7 /* escuelaApp.swift in Sources */,
+				87F829882796380700779A72 /* DueStore.swift in Sources */,
+				87F82986279637F600779A72 /* DueView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

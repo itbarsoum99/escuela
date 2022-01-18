@@ -13,6 +13,7 @@ struct ContentView: View {
     enum Tab {
         case notes
         case todo
+        case assignments
         // add more for each page
     }
     var body: some View {
@@ -24,9 +25,15 @@ struct ContentView: View {
                 .tag(Tab.notes)
             ToDoView()
                 .tabItem {
-                    Label("Tasks", systemImage:  "list.bullet.rectangle")
+                    Label("Tasks", systemImage:  "checkmark.circle.fill")
                 }
                 .tag(Tab.todo)
+            DueView()
+                .tabItem {
+                    Label("Assignments", systemImage: "sun.haze")
+                    
+                }
+                .tag(Tab.assignments)
         }
     }
 }
