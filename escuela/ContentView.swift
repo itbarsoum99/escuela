@@ -8,32 +8,46 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selection: Tab = .notes
+    @State private var selection: Tab = .todo
     
     enum Tab {
+        //case home
         case notes
         case todo
         case assignments
+        case about
+        
         // add more for each page
     }
     var body: some View {
         TabView(selection: $selection) {
-            NotesView()
+            /*HomeView()
                 .tabItem {
-                    Label("Notes", systemImage: "note.text")
+                    Label("Home", systemImage: "house")
                 }
-                .tag(Tab.notes)
+                .tag(Tab.home)*/
             ToDoView()
                 .tabItem {
                     Label("Tasks", systemImage:  "checkmark.circle.fill")
                 }
                 .tag(Tab.todo)
+            NotesView()
+                .tabItem {
+                    Label("Notes", systemImage: "note.text")
+                }
+                .tag(Tab.notes)
+            
             DueView()
                 .tabItem {
                     Label("Assignments", systemImage: "sun.haze")
                     
                 }
                 .tag(Tab.assignments)
+            AboutView()
+                .tabItem {
+                    Label("About", systemImage: "questionmark.circle.fill")
+                }
+                .tag(Tab.about)
         }
     }
 }

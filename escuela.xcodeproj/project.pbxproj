@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		870FFA342797379D0088937D /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870FFA332797379D0088937D /* AboutView.swift */; };
 		87554C722791EA870042C29B /* ToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87554C712791EA870042C29B /* ToDoView.swift */; };
 		87554C742791EBA30042C29B /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87554C732791EBA30042C29B /* DataStore.swift */; };
 		87554C762791F4850042C29B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87554C752791F4850042C29B /* ContentView.swift */; };
 		876493F427838D68004F26D3 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876493F327838D68004F26D3 /* NotesView.swift */; };
+		87A56E30279775050045F9FD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A56E2F279775050045F9FD /* HomeView.swift */; };
 		87E1E6CC272F3412009211D7 /* escuelaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E1E6CB272F3412009211D7 /* escuelaApp.swift */; };
 		87E1E6D0272F3413009211D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87E1E6CF272F3413009211D7 /* Assets.xcassets */; };
 		87E1E6D3272F3413009211D7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87E1E6D2272F3413009211D7 /* Preview Assets.xcassets */; };
@@ -39,10 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		870FFA332797379D0088937D /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		87554C712791EA870042C29B /* ToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoView.swift; sourceTree = "<group>"; };
 		87554C732791EBA30042C29B /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		87554C752791F4850042C29B /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		876493F327838D68004F26D3 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
+		87A56E2F279775050045F9FD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		87E1E6C8272F3412009211D7 /* escuela.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = escuela.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87E1E6CB272F3412009211D7 /* escuelaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = escuelaApp.swift; sourceTree = "<group>"; };
 		87E1E6CF272F3413009211D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 			children = (
 				87F82984279637E800779A72 /* DueDates */,
 				87554C752791F4850042C29B /* ContentView.swift */,
+				87A56E2F279775050045F9FD /* HomeView.swift */,
+				870FFA332797379D0088937D /* AboutView.swift */,
 				87E1E6CB272F3412009211D7 /* escuelaApp.swift */,
 				87554C6E2791E8490042C29B /* ToDo */,
 				876493F627838F72004F26D3 /* Notes */,
@@ -304,6 +310,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87A56E30279775050045F9FD /* HomeView.swift in Sources */,
+				870FFA342797379D0088937D /* AboutView.swift in Sources */,
 				876493F427838D68004F26D3 /* NotesView.swift in Sources */,
 				87554C762791F4850042C29B /* ContentView.swift in Sources */,
 				87554C722791EA870042C29B /* ToDoView.swift in Sources */,

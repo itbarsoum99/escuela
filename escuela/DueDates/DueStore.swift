@@ -17,5 +17,6 @@ struct Due: Identifiable {
 
 class AssignmentsDataStore: ObservableObject {
     @Published var assignments = [Due]()
+    
 }
 

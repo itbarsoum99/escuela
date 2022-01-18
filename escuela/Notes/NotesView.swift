@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NotesView: View {
-    @State private var note1 = ""
+    @State public var note1 = ""
     @State private var note2 = ""
     @State private var note3 = ""
     @State private var note4 = ""
@@ -20,7 +20,7 @@ struct NotesView: View {
 
         UITextView.appearance().backgroundColor = .init(Color(red: 0.808, green: 0.808, blue: 0.808)
 )
-        UITextView.appearance().textContainerInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
+        UITextView.appearance().textContainerInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         
     }
     var body: some View {
@@ -36,7 +36,7 @@ struct NotesView: View {
 
             TextEditor(text: $note1)
                 
-                .frame(height: 300)
+                .frame(minHeight: 300)
                 .cornerRadius(10.0)
                 .padding([.leading, .bottom, .trailing])
 

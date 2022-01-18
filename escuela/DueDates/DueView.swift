@@ -17,8 +17,9 @@ struct DueView: View {
     @State var assignmentDue: Date = Date()
     
     var addAssignment: some View {
+        
         HStack {
-            TextField("Assignment", text: self.$newAssignment)
+            TextField("Add assignment", text: self.$newAssignment)
             DatePicker(selection: self.$assignmentDue, displayedComponents: [.date]) {
                 Text("")
             }
@@ -43,8 +44,23 @@ struct DueView: View {
                             Text(duething.dueItem)
                                 .fontWeight(.bold)
                                 .font(.title3)
-                                
-                            Text(duething.dueDate, style: .date)
+                            let hasPassed = duething.dueDate < Date()
+                            let isToday = Calendar.current.isDateInToday(duething.dueDate)
+                            let tomorrowsDate = Date().addingTimeInterval(86400)
+                            let isTomorrow = Calendar.current.isDate(duething.dueDate, equalTo: tomorrowsDate, toGranularity: .day)
+                            let twoDaysDate = Date().addingTimeInterval(172800)
+                            let isInTwoDays = Calendar.current.isDate(duething.dueDate, equalTo: twoDaysDate, toGranularity: .day)
+
+                            if (isToday == true || hasPassed == true) {
+                                Text(duething.dueDate, style: .date)
+                                    .foregroundColor(.red)
+                            } else if (isTomorrow == true || isInTwoDays == true) {
+                                Text(duething.dueDate, style: .date)
+                                    .foregroundColor(Color(hue: 0.08, saturation: 1.0, brightness: 1.0))
+                            } else {
+                                Text(duething.dueDate, style: .date)
+                            }
+                            
                         }
                         
                     }.onDelete(perform: self.deleteAssignment)
@@ -62,6 +78,7 @@ struct DueView: View {
     }
     func addAnAssignment() {
         if newAssignment != "" {
+
         dueStore.assignments.append(Due(
             id: String(dueStore.assignments.count + 1),
             dueItem: newAssignment,
@@ -69,12 +86,16 @@ struct DueView: View {
         ))
         
         self.newAssignment = ""
+            dueStore.assignments.sort {
+                $0.dueDate < $1.dueDate
+            }
         }
     }
 
     func deleteAssignment(at offsets: IndexSet) {
         dueStore.assignments.remove(atOffsets:offsets)
     }
+    
 }
 
 
