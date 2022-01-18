@@ -21,11 +21,7 @@ struct ContentView: View {
     }
     var body: some View {
         TabView(selection: $selection) {
-            /*HomeView()
-                .tabItem {
-                    Label("Home", systemImage: "house")
-                }
-                .tag(Tab.home)*/
+      
             ToDoView()
                 .tabItem {
                     Label("Tasks", systemImage:  "checkmark.circle.fill")
