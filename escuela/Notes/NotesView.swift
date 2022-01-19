@@ -16,19 +16,19 @@ struct NotesView: View {
     @AppStorage("note5") private var note5 = ""
     @AppStorage("note6") private var note6 = ""
     
-    @FocusState private var focus: Bool
 
     
-    
+ 
     init () {
 
         UITextView.appearance().backgroundColor = .init(Color(red: 0.808, green: 0.808, blue: 0.808)
 )
         UITextView.appearance().textContainerInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
-        
+        UIScrollView.appearance().keyboardDismissMode = .onDrag
+
     }
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             
             HStack {
                 Text("Quick Notes")
@@ -37,23 +37,10 @@ struct NotesView: View {
                     .font(.largeTitle)
                 Spacer()
             }
-            NavigationView {
             TextEditor(text: $note1)
-                .focused($focus)
-
                 .frame(minHeight: 300)
                 .cornerRadius(10.0)
                 .padding([.leading, .bottom, .trailing])
-                .toolbar {
-                    ToolbarItemGroup(placement: .keyboard) {
-                        Spacer()
-
-                        Button("Done") {
-                            focus = false
-                        }
-                    }
-                }
-            }
 
 
             TextEditor(text: $note2)
