@@ -13,9 +13,21 @@ struct ToDoView: View {
     
     @State var newTask: String = ""
     
+    @FocusState var isInputActive: Bool
+    
     var addTaskBar: some View {
         HStack {
             TextField("Add a task ", text: self.$newTask)
+                .focused($isInputActive)
+                .toolbar {
+                                    ToolbarItemGroup(placement: .keyboard) {
+                                        Spacer()
+
+                                        Button("Done") {
+                                            isInputActive = false
+                                        }
+                                    }
+                                }
             Button(action: self.addNewTask, label: {Image(systemName: "plus").imageScale(.large)})
         }
         

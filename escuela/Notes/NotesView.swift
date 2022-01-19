@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct NotesView: View {
-    @State public var note1 = ""
-    @State private var note2 = ""
-    @State private var note3 = ""
-    @State private var note4 = ""
-    @State private var note5 = ""
-    @State private var note6 = ""
+    @AppStorage("note1") private var note1 = ""
+    
+    @AppStorage("note2") private var note2 = ""
+    @AppStorage("note3") private var note3 = ""
+    @AppStorage("note4") private var note4 = ""
+    @AppStorage("note5") private var note5 = ""
+    @AppStorage("note6") private var note6 = ""
+    
+    @FocusState private var focus: Bool
+
     
     
     init () {
@@ -33,12 +37,23 @@ struct NotesView: View {
                     .font(.largeTitle)
                 Spacer()
             }
-
+            NavigationView {
             TextEditor(text: $note1)
-                
+                .focused($focus)
+
                 .frame(minHeight: 300)
                 .cornerRadius(10.0)
                 .padding([.leading, .bottom, .trailing])
+                .toolbar {
+                    ToolbarItemGroup(placement: .keyboard) {
+                        Spacer()
+
+                        Button("Done") {
+                            focus = false
+                        }
+                    }
+                }
+            }
 
 
             TextEditor(text: $note2)

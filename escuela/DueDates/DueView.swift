@@ -16,10 +16,22 @@ struct DueView: View {
     
     @State var assignmentDue: Date = Date()
     
+    @FocusState private var isInputActive: Bool
+    
     var addAssignment: some View {
         
         HStack {
             TextField("Add assignment", text: self.$newAssignment)
+                .focused($isInputActive)
+                .toolbar {
+                                    ToolbarItemGroup(placement: .keyboard) {
+                                        Spacer()
+
+                                        Button("Done") {
+                                            isInputActive = false
+                                        }
+                                    }
+                                }
             DatePicker(selection: self.$assignmentDue, displayedComponents: [.date]) {
                 Text("")
             }
@@ -84,6 +96,7 @@ struct DueView: View {
             dueItem: newAssignment,
             dueDate: assignmentDue
         ))
+
         
         self.newAssignment = ""
             dueStore.assignments.sort {
