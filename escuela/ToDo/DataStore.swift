@@ -2,7 +2,7 @@
 //  DataStore.swift
 //  escuela
 //
-//  Created by Barsoum on 1/14/22.
+//  Created by Barsoum on 1/21/22.
 //
 
 import Foundation
@@ -16,6 +16,5 @@ struct Task: Identifiable {
 
 class TaskDataStore: ObservableObject {
     @Published var tasks = [Task]()
+    
 }
-
-
