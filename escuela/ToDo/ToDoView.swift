@@ -5,11 +5,22 @@
 //  Created by Barsoum on 1/14/22.
 //
 
+import Foundation
 import SwiftUI
 import Combine
 
+/*struct Task: Identifiable, Codable {
+    var id = String()
+    var taskItem = String()
+}*/
+let userDefaults = UserDefaults.standard
+
+var taskStore: [String] = userDefaults.object(forKey: "myKey") as? [String] ?? []
+
 struct ToDoView: View {
-    @ObservedObject var taskStore = TaskDataStore()
+
+    
+    /*@AppStorage("taskList") private var taskStore = [Task]()*/
     
     @State var newTask: String = ""
     
@@ -41,11 +52,16 @@ struct ToDoView: View {
                 addTaskBar
                 
                 List {
-                    ForEach(self.taskStore.tasks) { task in
-                        Text(task.taskItem)
+                    ForEach(taskStore, id: \.self) { task in
+                        Text(task)
+
                         
-                    }.onDelete(perform: self.deleteTask)
+                    }
+                    .onDelete(perform: self.deleteTask)
+
+
                 }
+                
                 .navigationTitle("Tasks")
                 .navigationBarItems(trailing: EditButton())
                 
@@ -61,35 +77,23 @@ struct ToDoView: View {
     // somewhere below here
     func addNewTask() {
         if newTask != "" {
-        taskStore.tasks.append(Task(
-            id: String(taskStore.tasks.count + 1),
-            taskItem: newTask
-        ))
-            //saveTasks()
-        
+        let aNewTask = newTask
+        taskStore.append(aNewTask)
         self.newTask = ""
+            saveTasks()
+
         }
     }
 
     func deleteTask(at offsets: IndexSet) {
-        taskStore.tasks.remove(atOffsets:offsets)
+        taskStore.remove(atOffsets:offsets)
+        //userDefaults.set(taskStore, forKey: "myKey")
+
     }
-    /*
+    
     func saveTasks() {
-        do {
-            // Create JSON Encoder
-            let encoder = JSONEncoder()
-
-            // Encode Note
-            let data = try encoder.encode(taskStore)
-
-            // Write/Set Data
-            UserDefaults.standard.set(data, forKey: "tasks")
-
-        } catch {
-            print("Unable to Encode Task List (\(error))")
-        }
-    } */
+        userDefaults.set(taskStore, forKey: "myKey")
+    }
     
     // above here
 }
