@@ -14,7 +14,7 @@ struct ContentView: View {
         //case home
         case notes
         case todo
-        case assignments
+        //case assignments
         case about
         
         // add more for each page
@@ -32,13 +32,14 @@ struct ContentView: View {
                     Label("Notes", systemImage: "note.text")
                 }
                 .tag(Tab.notes)
-            
+            /*
             DueView()
                 .tabItem {
                     Label("Assignments", systemImage: "sun.haze")
                     
                 }
                 .tag(Tab.assignments)
+             */
             AboutView()
                 .tabItem {
                     Label("About", systemImage: "questionmark.circle.fill")

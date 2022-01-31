@@ -15,15 +15,10 @@ import Combine
 }*/
 let userDefaults = UserDefaults.standard
 
-var taskStore: [String] = userDefaults.object(forKey: "myKey") as? [String] ?? []
+var taskStore: [String] = userDefaults.object(forKey: "tasksKey") as? [String] ?? []
 
 struct ToDoView: View {
-
-    
-    /*@AppStorage("taskList") private var taskStore = [Task]()*/
-    
     @State var newTask: String = ""
-    
     @FocusState var isInputActive: Bool
     
     var addTaskBar: some View {
@@ -43,59 +38,58 @@ struct ToDoView: View {
         }
         
     }
+    init() {
+        UITableView.appearance().showsVerticalScrollIndicator = false
+    }
     var body: some View {
         NavigationView() {
-
             VStack {
-                
-                
                 addTaskBar
-                
                 List {
-                    ForEach(taskStore, id: \.self) { task in
+                    ForEach(taskStore, id: \.self) { (task) in
                         Text(task)
-
-                        
                     }
                     .onDelete(perform: self.deleteTask)
-
-
                 }
-                
                 .navigationTitle("Tasks")
                 .navigationBarItems(trailing: EditButton())
-                
             }
             .padding()
-            
             .background(Color(red: 0.949, green: 0.949, blue: 0.971))
-
+            .toolbar {
+                EditButton()
+            }
         }
-        
     }
     
-    // somewhere below here
     func addNewTask() {
         if newTask != "" {
         let aNewTask = newTask
         taskStore.append(aNewTask)
         self.newTask = ""
-            saveTasks()
-
+        saveTasks()
         }
     }
-
+    /* This method not working */
     func deleteTask(at offsets: IndexSet) {
         taskStore.remove(atOffsets:offsets)
-        //userDefaults.set(taskStore, forKey: "myKey")
-
+        /*if let data = userDefaults.data(forKey: "tasksKey") {
+            do {
+                var arr = try JSONDecoder().decode([String].self, from: data)
+                arr.remove(at: indexSet)
+                let data = try JSONEncoder().encode(arr)
+                userDefaults.set(data, forKey: "tasksKey")
+            } catch {
+                print(error)
+            }
+        }*/
+        saveTasks()
     }
     
     func saveTasks() {
-        userDefaults.set(taskStore, forKey: "myKey")
+        userDefaults.set(taskStore, forKey: "tasksKey")
     }
     
-    // above here
 }
 
 struct ToDoView_Previews: PreviewProvider {
