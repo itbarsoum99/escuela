@@ -15,12 +15,13 @@ import Combine
 }*/
 let userDefaults = UserDefaults.standard
 
-var taskStore: [String] = userDefaults.object(forKey: "tasksKey") as? [String] ?? []
+//var taskStore: [String] = userDefaults.object(forKey: "tasksKey") as? [String] ?? []
 
 struct ToDoView: View {
-    @State var newTask: String = ""
+    @State var newTask = ""
+    @ObservedObject var taskStore = Tasks()
     @FocusState var isInputActive: Bool
-    @State var flag = false
+    //@State var flag = false
     
     var addTaskBar: some View {
         HStack {
@@ -41,7 +42,7 @@ struct ToDoView: View {
     }
     init() {
         UITableView.appearance().showsVerticalScrollIndicator = false
-        taskStore = UserDefaults.standard.object(forKey: "tasksKey") as? [String] ?? []
+        //taskStore = UserDefaults.standard.object(forKey: "tasksKey") as? [String] ?? []
     }
     var body: some View {
         NavigationView() {
@@ -49,14 +50,14 @@ struct ToDoView: View {
                 addTaskBar
                 
                 List {
-                    ForEach(taskStore.indices, id: \.self) { (index) in
-                        Text(taskStore[index])
+                    ForEach(taskStore.ts.indices, id: \.self) { (index) in
+                        Text(taskStore.ts[index])
                         
                     }
                     .onDelete(perform: deleteTask)
                 }
                 .navigationTitle("Tasks")
-                .navigationBarItems(trailing: EditButton())
+                //.navigationBarItems(trailing: EditButton())
             }
             .padding()
             .background(Color(red: 0.949, green: 0.949, blue: 0.971))
@@ -68,15 +69,14 @@ struct ToDoView: View {
     
     func addNewTask() {
         if newTask != "" {
-        let aNewTask = newTask
-        taskStore.append(aNewTask)
-        self.newTask = ""
-        saveTasks()
-            
+            let aNewTask = newTask
+            taskStore.ts.append(aNewTask)
+            self.newTask = ""
+            saveTasks()
         }
     }
     func deleteTask(indexSet: IndexSet) {
-        taskStore.remove(atOffsets:indexSet)
+        taskStore.ts.remove(atOffsets:indexSet)
         /*if let data = userDefaults.data(forKey: "tasksKey") {
             do {
                 var arr = try JSONDecoder().decode([String].self, from: data)
@@ -92,7 +92,7 @@ struct ToDoView: View {
     }
     
     func saveTasks() {
-        userDefaults.set(taskStore, forKey: "tasksKey")
+        userDefaults.set(taskStore.ts, forKey: "tasksKey")
         userDefaults.synchronize()
     }
     
