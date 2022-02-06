@@ -20,6 +20,7 @@ var taskStore: [String] = userDefaults.object(forKey: "tasksKey") as? [String] ?
 struct ToDoView: View {
     @State var newTask: String = ""
     @FocusState var isInputActive: Bool
+    @State var flag = false
     
     var addTaskBar: some View {
         HStack {
@@ -40,16 +41,19 @@ struct ToDoView: View {
     }
     init() {
         UITableView.appearance().showsVerticalScrollIndicator = false
+        taskStore = UserDefaults.standard.object(forKey: "tasksKey") as? [String] ?? []
     }
     var body: some View {
         NavigationView() {
             VStack {
                 addTaskBar
+                
                 List {
-                    ForEach(taskStore, id: \.self) { (task) in
-                        Text(task)
+                    ForEach(taskStore.indices, id: \.self) { (index) in
+                        Text(taskStore[index])
+                        
                     }
-                    .onDelete(perform: self.deleteTask)
+                    .onDelete(perform: deleteTask)
                 }
                 .navigationTitle("Tasks")
                 .navigationBarItems(trailing: EditButton())
@@ -68,11 +72,11 @@ struct ToDoView: View {
         taskStore.append(aNewTask)
         self.newTask = ""
         saveTasks()
+            
         }
     }
-    /* This method not working */
-    func deleteTask(at offsets: IndexSet) {
-        taskStore.remove(atOffsets:offsets)
+    func deleteTask(indexSet: IndexSet) {
+        taskStore.remove(atOffsets:indexSet)
         /*if let data = userDefaults.data(forKey: "tasksKey") {
             do {
                 var arr = try JSONDecoder().decode([String].self, from: data)
@@ -83,11 +87,13 @@ struct ToDoView: View {
                 print(error)
             }
         }*/
+
         saveTasks()
     }
     
     func saveTasks() {
         userDefaults.set(taskStore, forKey: "tasksKey")
+        userDefaults.synchronize()
     }
     
 }
