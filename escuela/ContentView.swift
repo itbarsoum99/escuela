@@ -19,6 +19,10 @@ struct ContentView: View {
         
         // add more for each page
     }
+    init() {
+        UITabBar.appearance().backgroundColor = .white
+
+    }
     var body: some View {
         TabView(selection: $selection) {
       
