@@ -10,7 +10,7 @@
 
 app created for my IB personal project
 
-### Use the app
+### Download
 
 [Become a beta tester](https://testflight.apple.com/join/s0Rxlid6)
 
