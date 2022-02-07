@@ -10,13 +10,11 @@
 
 app created for my IB personal project
 
-### Preview
+### Use the app
 
 [Become a beta tester](https://testflight.apple.com/join/s0Rxlid6)
 
-### Download
-
-app store stable release coming soon
+\[app store stable release coming soon\]
 
 ### Version
 
