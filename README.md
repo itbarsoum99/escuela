@@ -21,8 +21,11 @@ app store stable release coming soon
 ## Version
 
 1.0.3 - bug fixes (current)
+
 1.0.2 - bug fixes
+
 1.0.1 - bug fixes
+
 1.0.0 - initial release
 
 ## Gallery
