@@ -27,5 +27,5 @@ app store stable release coming soon
 
 ## Gallery
 
-![EscuelaViews1.png](tasks_view)
-![EscuelaViews2.png](notes_view)
+![tasks_view](EscuelaViews1.png)
+![notes_view](EscuelaViews2.png)
