@@ -12,7 +12,7 @@ app created for my IB personal project
 
 ### Preview
 
-beta testing invite request link coming soon
+[Become a beta tester](https://testflight.apple.com/join/s0Rxlid6)
 
 ### Download
 
