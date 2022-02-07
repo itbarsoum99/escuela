@@ -1,24 +1,24 @@
 # escuela
 ## a student productivity app
 
-## Features
+### Features
 * Tasks
 * Notes
 * Calendar (coming soon)
 
-## About
+### About
 
 app created for my IB personal project
 
-## Preview
+### Preview
 
 beta testing invite request link coming soon
 
-## Download
+### Download
 
 app store stable release coming soon
 
-## Version
+### Version
 
 1.0.3 - bug fixes (current)
 
@@ -28,7 +28,7 @@ app store stable release coming soon
 
 1.0.0 - initial release
 
-## Gallery
+### Gallery
 
 ![tasks_view](EscuelaViews1.png)
 ![notes_view](EscuelaViews2.png)
