@@ -21,7 +21,9 @@ app created for my IB personal project
 
 ### Version
 
-1.0.3 - bug fixes (current)
+1.1.0 - added timer, first stable release (current)
+
+1.0.3 - bug fixes
 
 1.0.2 - bug fixes
 
