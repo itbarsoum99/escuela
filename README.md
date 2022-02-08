@@ -28,5 +28,6 @@ app created for my IB personal project
 
 ### Gallery
 
-![tasks_view](EscuelaViews1.png)
-![notes_view](EscuelaViews2.png)
+![tasks_view](tasksview.png)
+![notes_view](notesview.png)
+![timer view](timerview.png)
