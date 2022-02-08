@@ -9,9 +9,12 @@
 /* Begin PBXBuildFile section */
 		870FFA342797379D0088937D /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870FFA332797379D0088937D /* AboutView.swift */; };
 		871BA924279B04E100FE83C8 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871BA923279B04E100FE83C8 /* DataStore.swift */; };
+		8749686627B1F367005F5D6F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8749686527B1F367005F5D6F /* TimerView.swift */; };
+		8749686827B1F3FE005F5D6F /* TimeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8749686727B1F3FE005F5D6F /* TimeStore.swift */; };
 		87554C722791EA870042C29B /* ToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87554C712791EA870042C29B /* ToDoView.swift */; };
 		87554C762791F4850042C29B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87554C752791F4850042C29B /* ContentView.swift */; };
 		876493F427838D68004F26D3 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876493F327838D68004F26D3 /* NotesView.swift */; };
+		876E001427B1DF4A00C6784C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876E001327B1DF4A00C6784C /* HomeView.swift */; };
 		87A56E3227977FDB0045F9FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87A56E3127977FDB0045F9FD /* LaunchScreen.storyboard */; };
 		87E1E6CC272F3412009211D7 /* escuelaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E1E6CB272F3412009211D7 /* escuelaApp.swift */; };
 		87E1E6D0272F3413009211D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87E1E6CF272F3413009211D7 /* Assets.xcassets */; };
@@ -43,9 +46,12 @@
 /* Begin PBXFileReference section */
 		870FFA332797379D0088937D /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		871BA923279B04E100FE83C8 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		8749686527B1F367005F5D6F /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		8749686727B1F3FE005F5D6F /* TimeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStore.swift; sourceTree = "<group>"; };
 		87554C712791EA870042C29B /* ToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoView.swift; sourceTree = "<group>"; };
 		87554C752791F4850042C29B /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		876493F327838D68004F26D3 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
+		876E001327B1DF4A00C6784C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		87A56E3127977FDB0045F9FD /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87E1E6C8272F3412009211D7 /* escuela.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = escuela.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87E1E6CB272F3412009211D7 /* escuelaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = escuelaApp.swift; sourceTree = "<group>"; };
@@ -85,6 +91,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8749686427B1F35D005F5D6F /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				8749686527B1F367005F5D6F /* TimerView.swift */,
+				8749686727B1F3FE005F5D6F /* TimeStore.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
 		87554C6E2791E8490042C29B /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +147,7 @@
 		87E1E6CA272F3412009211D7 /* escuela */ = {
 			isa = PBXGroup;
 			children = (
+				8749686427B1F35D005F5D6F /* Timer */,
 				87F82984279637E800779A72 /* DueDates */,
 				87554C752791F4850042C29B /* ContentView.swift */,
 				870FFA332797379D0088937D /* AboutView.swift */,
@@ -142,6 +158,7 @@
 				87E1E6CF272F3413009211D7 /* Assets.xcassets */,
 				87E1E6D1272F3413009211D7 /* Preview Content */,
 				87A56E3127977FDB0045F9FD /* LaunchScreen.storyboard */,
+				876E001327B1DF4A00C6784C /* HomeView.swift */,
 			);
 			path = escuela;
 			sourceTree = "<group>";
@@ -311,6 +328,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8749686627B1F367005F5D6F /* TimerView.swift in Sources */,
+				8749686827B1F3FE005F5D6F /* TimeStore.swift in Sources */,
+				876E001427B1DF4A00C6784C /* HomeView.swift in Sources */,
 				870FFA342797379D0088937D /* AboutView.swift in Sources */,
 				871BA924279B04E100FE83C8 /* DataStore.swift in Sources */,
 				876493F427838D68004F26D3 /* NotesView.swift in Sources */,

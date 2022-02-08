@@ -9,17 +9,12 @@ import Foundation
 import SwiftUI
 import Combine
 
-/*struct Task: Identifiable, Codable {
-    var id = String()
-    var taskItem = String()
-}*/
 let userDefaults = UserDefaults.standard
 
-//var taskStore: [String] = userDefaults.object(forKey: "tasksKey") as? [String] ?? []
 
 struct ToDoView: View {
     @State var newTask = ""
-    @ObservedObject var taskStore = Tasks()
+    @ObservedObject public var taskStore = Tasks()
     @FocusState var isInputActive: Bool
     //@State var flag = false
     
@@ -55,6 +50,7 @@ struct ToDoView: View {
                         
                     }
                     .onDelete(perform: deleteTask)
+                    .onMove(perform: move)
                 }
                 .navigationTitle("Tasks")
                 //.navigationBarItems(trailing: EditButton())
@@ -94,6 +90,10 @@ struct ToDoView: View {
     func saveTasks() {
         userDefaults.set(taskStore.ts, forKey: "tasksKey")
         userDefaults.synchronize()
+    }
+    func move(from source: IndexSet, to destination: Int) {
+        taskStore.ts.move(fromOffsets: source, toOffset: destination)
+        saveTasks()
     }
     
 }

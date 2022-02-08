@@ -16,6 +16,7 @@ struct ContentView: View {
         case todo
         //case assignments
         case about
+        case timer
         
         // add more for each page
     }
@@ -36,14 +37,18 @@ struct ContentView: View {
                     Label("Notes", systemImage: "note.text")
                 }
                 .tag(Tab.notes)
-            /*
-            DueView()
+            
+            /*DueView()
                 .tabItem {
                     Label("Assignments", systemImage: "sun.haze")
                     
                 }
-                .tag(Tab.assignments)
-             */
+                .tag(Tab.assignments)*/
+             TimerView()
+                .tabItem {
+                    Label("Timer", systemImage: "deskclock")
+                }
+                .tag(Tab.timer)
             AboutView()
                 .tabItem {
                     Label("About", systemImage: "questionmark.circle.fill")

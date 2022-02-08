@@ -9,15 +9,18 @@ import Foundation
 import SwiftUI
 import Combine
 
-struct Due: Identifiable {
+struct Due: Identifiable, Codable {
     var id = String()
     var dueItem = String()
     var dueDate = Date()
 }
 
 class AssignmentsDataStore: ObservableObject {
-    @Published var assignments = [Due]()
+    //@Published var assignments = [Due]()
+    @Published var assignments: [Due] = userDefaults.object(forKey: "dueKey") as? [Due] ?? []
+
+    
+    //@Published var assignments: [Due]
+
     
 }
-
-

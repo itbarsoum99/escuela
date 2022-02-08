@@ -5,33 +5,38 @@
 //  Created by Barsoum on 1/17/22.
 //
 
-import SwiftUI
+import Foundation
 import SwiftUI
 import Combine
 
+
+
 struct DueView: View {
-    @ObservedObject var dueStore = AssignmentsDataStore()
     
     @State var newAssignment: String = ""
     
     @State var assignmentDue: Date = Date()
     
+    @ObservedObject var dueStore = AssignmentsDataStore()
+    
+
     @FocusState private var isInputActive: Bool
     
+    
+    
     var addAssignment: some View {
-        
+
         HStack {
             TextField("Add assignment", text: self.$newAssignment)
                 .focused($isInputActive)
                 .toolbar {
-                                    ToolbarItemGroup(placement: .keyboard) {
-                                        Spacer()
-
-                                        Button("Done") {
-                                            isInputActive = false
-                                        }
-                                    }
-                                }
+                    ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button("Done") {
+                        isInputActive = false
+                    }
+                }
+            }
             DatePicker(selection: self.$assignmentDue, displayedComponents: [.date]) {
                 Text("")
             }
@@ -43,19 +48,19 @@ struct DueView: View {
         
     }
     var body: some View {
+
         NavigationView {
 
             VStack {
-                
-                
                 addAssignment
                 
                 List {
-                    ForEach(self.dueStore.assignments) { duething in
+                    ForEach(dueStore.assignments) { duething in
                         VStack(alignment: .leading) {
                             Text(duething.dueItem)
                                 .fontWeight(.bold)
                                 .font(.title3)
+                            
                             let hasPassed = duething.dueDate < Date()
                             let isToday = Calendar.current.isDateInToday(duething.dueDate)
                             let tomorrowsDate = Date().addingTimeInterval(86400)
@@ -90,25 +95,46 @@ struct DueView: View {
     }
     func addAnAssignment() {
         if newAssignment != "" {
-
-        dueStore.assignments.append(Due(
+        let aNewAssignment = Due(
             id: String(dueStore.assignments.count + 1),
             dueItem: newAssignment,
             dueDate: assignmentDue
-        ))
+        )
+        dueStore.assignments.append(aNewAssignment)
+        saveAssignments()
+       
 
         
-        self.newAssignment = ""
-            dueStore.assignments.sort {
-                $0.dueDate < $1.dueDate
-            }
+        /*self.newAssignment = ""
+        dueStore.assignments.sort {
+            $0.dueDate < $1.dueDate
+            }*/
         }
+         
     }
 
     func deleteAssignment(at offsets: IndexSet) {
         dueStore.assignments.remove(atOffsets:offsets)
+        saveAssignments()
+    }
+
+    func saveAssignments() {
+        do {
+            // Create JSON Encoder
+            let encoder = JSONEncoder()
+
+            // Encode Note
+            let data = try encoder.encode(dueStore.assignments)
+
+            // Write/Set Data
+            userDefaults.set(data, forKey: "dueKey")
+
+        } catch {
+            print("Unable to Encode Array of Notes (\(error))")
+        }
     }
     
+
 }
 
 
