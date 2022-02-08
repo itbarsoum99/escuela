@@ -4,11 +4,14 @@
 ### Features
 * Tasks
 * Notes
+* Timer
 * Calendar (coming soon)
 
 ### About
 
 app created for my IB personal project
+
+[Privacy policy](https://appescuela.netlify.app/privacy/)
 
 ### Download
 
