@@ -33,6 +33,6 @@ app created for my IB personal project
 
 ### Gallery
 
-![tasks_view](tasksview.png)
-![notes_view](notesview.png)
-![timer view](timerview.png)
+<img src="/tasksview.png" width="200px" />
+<img src="/notesview.png" width="200px" />
+<img src="/timerview.png" width="200px" />
