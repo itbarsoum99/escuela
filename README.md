@@ -34,7 +34,7 @@ app created for my IB personal project
 ### Gallery
 
 <div style="display: flex;">
-<img src="/tasksview.png" width="200px" />
-<img src="/notesview.png" width="200px" />
-<img src="/timerview.png" width="200px" />
+<img src="/tasksview.png" width="250px" />
+<img src="/notesview.png" width="250px" />
+<img src="/timerview.png" width="250px" />
   </div>
